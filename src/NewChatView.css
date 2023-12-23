@@ -1,0 +1,79 @@
+.chat-view {
+  background-color: white;
+  text-align: left;
+  margin: 1px 56px 24px;
+  border-radius: 30px;
+  height: 100%;
+  width: 100%;
+}
+
+.chat-view-mobile {
+  margin: 0;
+}
+
+.chat-view-menu-open {
+  width: 85%;
+}
+
+.chat-view-child {
+  width: 55%;
+  padding: 30px 20px;
+  margin: auto;
+}
+
+.chat-view-child-mobile {
+  margin: 0;
+  width: 100%;
+}
+
+.tiles-section {
+  overflow: auto;
+  min-height: 70%;
+}
+
+.top-row {
+  margin: 20px 0;
+}
+
+.head1 {
+  margin: 20px 0;
+  font-size: 2.75rem;
+  font-weight: 400;
+  line-height: 3.25rem;
+  font-family: Google Sans,Helvetica Neue,sans-serif;
+  letter-spacing: normal;
+  font-weight: 700;
+  letter-spacing: -1pt;
+  margin-top: 0;
+
+}
+
+.head2 {
+  margin: 20px 0;
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  font-family: Google Sans,Helvetica Neue,sans-serif;
+  letter-spacing: normal;
+  color: rgb(103 103 103);
+  margin-top: -12px;
+  margin-bottom: 24px;
+}
+
+.bard-input {
+  padding-left: 20px;
+  width: 90%;
+  height: 45px;
+  border-radius: 25px;
+  font-size: 15px;
+}
+
+.input-warning {
+  font-size: 12px;
+  text-align: center;
+}
+
+.send-icon {
+  width: 10%;
+  cursor: pointer;
+}

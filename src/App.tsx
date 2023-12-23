@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Header } from "./Header";
+import { BardViewContextProvider } from "./BardViewContext";
+import { Menu } from "./Menu";
+import { NewChatView } from "./NewChatView";
+
+const View = () => {
+  // const { bardContextValue } = useBardContext();
+  return (
+    <>
+      <Header />
+      <div className="content">
+        <Menu />
+        <NewChatView />
+      </div>
+    </>
+  );
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BardViewContextProvider>
+        <View />
+      </BardViewContextProvider>
     </div>
   );
 }
