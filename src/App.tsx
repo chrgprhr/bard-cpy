@@ -1,11 +1,11 @@
-import "./App.css";
 import { Header } from "./Header";
 import { BardViewContextProvider } from "./BardViewContext";
 import { Menu } from "./Menu";
 import { NewChatView } from "./NewChatView";
 
+import "./App.css";
+
 const View = () => {
-  // const { bardContextValue } = useBardContext();
   return (
     <>
       <Header />
