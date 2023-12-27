@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bard-cpy/static/css/main.f8d7897f.css",
+    "main.js": "/bard-cpy/static/js/main.243aa959.js",
+    "static/js/787.0bb90ae6.chunk.js": "/bard-cpy/static/js/787.0bb90ae6.chunk.js",
+    "index.html": "/bard-cpy/index.html",
+    "main.f8d7897f.css.map": "/bard-cpy/static/css/main.f8d7897f.css.map",
+    "main.243aa959.js.map": "/bard-cpy/static/js/main.243aa959.js.map",
+    "787.0bb90ae6.chunk.js.map": "/bard-cpy/static/js/787.0bb90ae6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f8d7897f.css",
+    "static/js/main.243aa959.js"
+  ]
+}
