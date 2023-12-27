@@ -38,8 +38,12 @@
   margin: 15px 0;
   width: -moz-fit-content;
   width: fit-content;
-  max-width: 85%;
+  max-width: 60%;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.selected {
+  background-color: #a3c9ff;
 }

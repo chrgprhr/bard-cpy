@@ -29,6 +29,36 @@
   display: flex;
 }
 
+.fadein {
+  position: relative;
+  animation: fadeIn 0.4s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0%   { 
+    top: 15px;
+    display: none;
+  }
+  100% { top: 0px; }
+}
+
+.fadeinleft {
+  position: relative;
+  animation: fadeInLeft 0.4s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInLeft {
+  0%   { 
+    left: -15px;
+    display: none;
+  }
+  100% { 
+    left: 0px;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

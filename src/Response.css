@@ -1,0 +1,29 @@
+.responseWindow {
+  padding: 30px 0;
+}
+
+.question {
+  align-items: flex-start;
+  display: flex;
+}
+
+.activeQueryQuestion {
+  background: rgb(240 244 248);
+  width: fit-content;
+  border-radius: 20px;
+  border-top-left-radius: 5px;
+  padding: 15px;
+  margin-left: 10px;
+}
+
+.qResponse {
+  align-items: flex-start;
+  display: flex;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.activeResponse {
+  width: fit-content;
+  margin-left: 10px;
+}

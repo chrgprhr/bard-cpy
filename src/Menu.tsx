@@ -1,26 +1,36 @@
-import AddIcon from "@mui/icons-material/Add";
 import Button from "@mui/material-next/Button";
-import { useBardContext } from "./BardViewContext";
+import { IUserQuery, useBardContext } from "./BardViewContext";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import MoreVertSharpIcon from "@mui/icons-material/MoreVertSharp";
 import "./Menu.css";
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 
-const RecentQueryRenderer = ({ query }: { query: string }) => {
-  const { updateRecentQueryList } = useBardContext();
+const RecentQueryRenderer = ({ query }: { query: IUserQuery }) => {
+  const { bardContextValue, setBardContextValue } = useBardContext();
 
   const onRecentQueryClick = useCallback(() => {
-    updateRecentQueryList(query);
-  }, [updateRecentQueryList, query]);
+    setBardContextValue({
+      ...bardContextValue,
+      activeUserQuery: query,
+    });
+  }, [bardContextValue, setBardContextValue, query]);
 
   return (
     <div
-      className="recentQueryRenderer a-center cursor-pointer"
+      className={`recentQueryRenderer a-center cursor-pointer ${
+        bardContextValue.activeUserQuery?.id === query.id ? "selectedRQ" : ""
+      }`}
       onClick={onRecentQueryClick}
     >
-      <ChatBubbleOutlineIcon />
-      <div className="query-label">{query}</div>
-      <MoreVertSharpIcon />
+      <div className="recentLabelLeftIcon">
+        <ChatBubbleOutlineIcon fontSize="small" />
+      </div>
+      <div className="query-label" title={query.tags?.[0] || query.label}>
+        {query.tags?.[0] || query.label}
+      </div>
+      <div>
+        <MoreVertSharpIcon />
+      </div>
     </div>
   );
 };
@@ -35,30 +45,42 @@ const MenuWebView = () => {
   const handleNewChatClick = useCallback(() => {
     setBardContextValue({
       ...bardContextValue,
+      activeUserQuery: undefined,
       newChatWindowOpen: true,
     });
   }, [setBardContextValue, bardContextValue]);
 
-  return (
-    <div className="menuWebContainer">
-      <Button
-        color="primary"
-        disabled={bardContextValue.newChatWindowOpen}
-        variant="filled"
-        startIcon={<AddIcon />}
-        onClick={handleNewChatClick}
-      >
-        New chat
-      </Button>
+  const menuWebContainerRef = useRef(null);
 
-      <div className="recents">
-        <div className="recent-label">Recent</div>
-        <div>
-          {bardContextValue.recentUserQueries.map((query) => (
-            <RecentQueryRenderer query={query} key={query} />
-          ))}
+  const isButtonDisabled = bardContextValue.newChatWindowOpen;
+  return (
+    <div className="menuWebContainer" ref={menuWebContainerRef}>
+      {/* <Slide
+          direction="right"
+          in={bardContextValue.isMenuOpen}
+          container={menuWebContainerRef.current}
+        > */}
+      <div className="fadeinleft">
+        <Button
+          color="primary"
+          disabled={isButtonDisabled}
+          variant="filled"
+          onClick={handleNewChatClick}
+          className={isButtonDisabled ? "" : "newChatBtn"}
+        >
+          + New chat
+        </Button>
+
+        <div className="recents">
+          <div className="recent-label">Recent</div>
+          <div>
+            {bardContextValue.recentUserQueries.map((query) => (
+              <RecentQueryRenderer query={query} key={query.id} />
+            ))}
+          </div>
         </div>
       </div>
+      {/* </Slide> */}
     </div>
   );
 };

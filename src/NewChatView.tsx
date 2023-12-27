@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import SendIcon from "@mui/icons-material/Send";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import "./NewChatView.css";
@@ -6,27 +6,24 @@ import "./NewChatView.css";
 import { PromptTiles } from "./PromptTiles";
 import { useBardContext } from "./BardViewContext";
 import { IconButton } from "@mui/material";
-
+import { Response } from "./Response";
 export const NewChatView = () => {
-  const { bardContextValue, updateRecentQueryList } = useBardContext();
+  const queryInputRef = useRef(null);
+  const { bardContextValue, handleQuerySubmission } = useBardContext();
   const [promptTilesConfig, setPromptTilesConfig] = useState("1");
 
-  const [inputQuery, setInputQuery] = useState(
-    bardContextValue.prefillInputText || ""
-  );
+  const activeUserQueryDescription =
+    bardContextValue.activeUserQuery?.description;
 
-  const handleInputQueryChange = useCallback(
-    (e: any) => {
-      setInputQuery(e.target.value);
-    },
-    [setInputQuery]
+  const [inputQuery, setInputQuery] = useState(
+    activeUserQueryDescription || ""
   );
 
   useEffect(() => {
-    if (bardContextValue.prefillInputText) {
-      setInputQuery(bardContextValue.prefillInputText);
+    if (activeUserQueryDescription) {
+      setInputQuery(activeUserQueryDescription);
     }
-  }, [setInputQuery, bardContextValue.prefillInputText]);
+  }, [setInputQuery, activeUserQueryDescription]);
 
   const onRefreshClick = useCallback(() => {
     // on refresh click, we'll randomly set a config and that will refresh the prompt tiles below
@@ -37,14 +34,35 @@ export const NewChatView = () => {
 
   const handleQuerySendClick = useCallback(() => {
     if (inputQuery) {
-      updateRecentQueryList(inputQuery);
+      handleQuerySubmission(inputQuery);
     }
-  }, [inputQuery, updateRecentQueryList]);
+  }, [inputQuery, handleQuerySubmission]);
+
+  const onQueryInputChange = (e: any) => {
+    setInputQuery(e.target.value);
+  };
+
+  const handleKeyUp = (e: any) => {
+    if (e.key === "Enter" || e.keyCode === 13) {
+      handleQuerySendClick();
+    }
+  };
 
   const isMobileView = bardContextValue.isMobileView;
 
   const isNewChatWindowOpened = bardContextValue.newChatWindowOpen;
-  const userQueryResponse = bardContextValue.userQueryResponse;
+
+  const setupInput = () => {
+    (queryInputRef.current as any)?.focus();
+  };
+
+  const handlePromptTileClick = () => {
+    setupInput();
+  };
+
+  useEffect(() => {
+    setupInput();
+  }, []);
 
   return (
     <>
@@ -80,17 +98,14 @@ export const NewChatView = () => {
                 Tell me what’s on your mind, or pick a suggestion.
               </div>
 
-              <PromptTiles configId={promptTilesConfig} />
+              <PromptTiles
+                configId={promptTilesConfig}
+                onTileClick={handlePromptTileClick}
+              />
             </>
           ) : null}
 
-          {userQueryResponse?.ok && userQueryResponse.data ? (
-            <div>Show data here</div>
-          ) : null}
-
-          {userQueryResponse?.fetching ? <div>Fetching</div> : null}
-
-          {userQueryResponse?.error ? <div>Error in fetching data</div> : null}
+          <Response />
         </div>
 
         <div
@@ -103,7 +118,9 @@ export const NewChatView = () => {
               className="bard-input"
               placeholder="Enter a prompt here"
               value={inputQuery}
-              onChange={handleInputQueryChange}
+              onChange={onQueryInputChange}
+              onKeyUp={handleKeyUp}
+              ref={queryInputRef}
             />
             <div className="send-icon j-center" onClick={handleQuerySendClick}>
               <SendIcon color={inputQuery ? "primary" : "disabled"} />

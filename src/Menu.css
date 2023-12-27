@@ -21,4 +21,30 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  font-size: 15px;
+}
+
+.newChatBtn {
+  background-color: #d3e3fd !important;
+  color: #041e49 !important;
+  font-weight: 700 !important;
+}
+
+.recentLabelLeftIcon {
+  background-color: white;
+  border-radius: 8px;
+  width: 30px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 16px;
+  }
+}
+
+.selectedRQ {
+  background-color: #c2e7ff;
+  border-radius: 22px;
 }
