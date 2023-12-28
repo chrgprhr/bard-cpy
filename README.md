@@ -21,3 +21,11 @@ Things missing from original design
 ## Log - 27 Dec, 2023
 
 1. Basic unit tests added
+
+## Log - 28 Dec, 2023
+
+1. Fine tuning pixels with original design
+2. Mobile responsiveness handled (not 100% but most of the tasks are now manageable)
+3. Editing a query in response window - when the query returns no response (set via mock data)
+4. Profile and settings button in header - they are unclickable
+5. Unit tests for all these mentioned cases

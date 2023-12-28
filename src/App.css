@@ -9,7 +9,7 @@
 .header {
   justify-content: space-between;
   padding: 8px;
-  height: 8%;
+  height: 6%;
 }
 
 .headerLeft {
@@ -18,13 +18,23 @@
   padding-right: 30px;
 }
 
+.headerRight {
+  display: flex;
+  justify-content: space-around;
+  padding-right: 30px;
+}
+
+.rightIcon {
+  margin: 0 10px;
+}
+
 .headerMenu {
   padding: 12px;
   margin: 0 5px;
 }
 
 .content {
-  height: 85%;
+  height: 90%;
   overflow: hidden;
   display: flex;
 }

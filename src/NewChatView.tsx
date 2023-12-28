@@ -35,6 +35,7 @@ export const NewChatView = () => {
   const handleQuerySendClick = useCallback(() => {
     if (inputQuery) {
       handleQuerySubmission(inputQuery);
+      setInputQuery("");
     }
   }, [inputQuery, handleQuerySubmission]);
 

@@ -83,4 +83,30 @@ describe("Main page tests", () => {
     expect(getByText("Recent")).toBeDefined();
     expect(getByText("Script writing")).toBeDefined();
   });
+
+  it("should handle no response case", () => {
+    const { container, getByText, getByDisplayValue } = render(<App />);
+
+    const dummyTileOption = getByText("No Response");
+
+    act(() => {
+      fireEvent.click(dummyTileOption!);
+    });
+
+    act(() => {
+      fireEvent.click(container.getElementsByClassName("send-icon")[0]);
+    });
+
+    expect(container).toMatchSnapshot("no response snapshot");
+
+    act(() => {
+      fireEvent.click(
+        container.getElementsByClassName("activeQueryQuestionEdit")[0]
+      );
+    });
+
+    expect(
+      getByDisplayValue("This query will give you no response")
+    ).toBeTruthy();
+  });
 });

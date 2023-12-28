@@ -20,11 +20,10 @@ export const promptTilesConfig1: IPromptTilesConfigArray = [
         "Oh, Baloo! Memories with that big, loveable lug are thicker than honey in a beehive! Picking one's like chasin' fireflies with bare hands – they all glimmer and flit\n!But there's one that shines like the moon on still water. See, we were just pups, me and Baloo, not much bigger than Bagheera's shadow. We snuck off from Mother Wolf's watchful eyes, curious as monkeys at a mango market. Stumbled into a clearing bathed in moonlight, like the jungle had spread a silver sheet for us to dance on.\nAnd that's what we did! Baloo, clumsy as a newborn elephant, kept tripping over his own paws, but his laughter would boom through the trees, sweeter than jungle berries. Me, I spun and leaped, the moonlight catching my brown fur like fireflies. We laughed till our bellies ached, and the stars peeked down at us, winkin' like old friends.",
     },
     option2: {
-      label: "Craft a story",
-      description: "Write me a story about",
+      label: "No Response",
+      description: "This query will give you no response",
       tags: ["storytelling"],
-      mockResponse:
-        "A Day of Closet Tranquility: Unveil Your Organized Oasis\nLet's breathe life into your closet, transforming it from a tangled jungle into a serene haven of self-expression. Today is a day dedicated to uncovering the joy of rediscovering your wardrobe, where every piece whispers possibilities and getting dressed becomes a delightful ritual.\nMorning: A Fresh Start with Sunlight and Song\nGreet the Day with Light: Infuse your space with natural sunshine, flinging open the windows or doors. Watch the morning light dance on potential outfits, a playful prelude to your organization symphony.\nSoundtrack Your Serenity: Let gentle music, instrumental or uplifting, fill the air. It will be your guiding melody as you declutter, each note washing away stress and paving the way for focus.",
+      mockNoResponse: true,
     },
     option3: {
       label: "Generate code",

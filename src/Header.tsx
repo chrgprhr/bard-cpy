@@ -1,5 +1,7 @@
 import { useCallback } from "react";
 import { useBardContext } from "./BardViewContext";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 
 export const Header = () => {
   const { bardContextValue, setBardContextValue } = useBardContext();
@@ -37,9 +39,15 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* <div className="headerRight">
-          // Add activity and profile button here
-        </div> */}
+      <div className="headerRight j-btw">
+        <div className="cursor-pointer rightIcon">
+          <SettingsOutlinedIcon />
+        </div>
+
+        <div className="cursor-pointer rightIcon">
+          <PermIdentityOutlinedIcon />
+        </div>
+      </div>
     </div>
   );
 };

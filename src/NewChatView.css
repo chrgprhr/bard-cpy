@@ -28,19 +28,19 @@
 
 .tiles-section {
   overflow: auto;
-  height: 85%;
+  height: 88%;
 }
 
 .input-section {
-  height: 15%;
+  height: 12%;
 }
 
 .top-row {
-  margin: 20px 0;
+  margin: 35px 0;
 }
 
 .head1 {
-  margin: 20px 0;
+  margin: 25px 0;
   font-size: 2.75rem;
   font-weight: 400;
   line-height: 3.25rem;
@@ -52,7 +52,7 @@
 }
 
 .head2 {
-  margin: 20px 0;
+  margin: 25px 0;
   font-size: 1.375rem;
   font-weight: 400;
   line-height: 1.75rem;
@@ -63,7 +63,7 @@
 
 .bard-input {
   padding-left: 20px;
-  width: 90%;
+  width: 95%;
   height: 45px;
   border-radius: 25px;
   font-size: 16px;
@@ -75,6 +75,6 @@
 }
 
 .send-icon {
-  width: 10%;
+  width: 5%;
   cursor: pointer;
 }

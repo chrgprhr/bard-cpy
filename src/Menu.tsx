@@ -11,6 +11,7 @@ const RecentQueryRenderer = ({ query }: { query: IUserQuery }) => {
   const onRecentQueryClick = useCallback(() => {
     setBardContextValue({
       ...bardContextValue,
+      newChatWindowOpen: false,
       activeUserQuery: query,
     });
   }, [bardContextValue, setBardContextValue, query]);
@@ -55,11 +56,6 @@ const MenuWebView = () => {
   const isButtonDisabled = bardContextValue.newChatWindowOpen;
   return (
     <div className="menuWebContainer" ref={menuWebContainerRef}>
-      {/* <Slide
-          direction="right"
-          in={bardContextValue.isMenuOpen}
-          container={menuWebContainerRef.current}
-        > */}
       <div className="fadeinleft">
         <Button
           color="primary"
@@ -71,16 +67,17 @@ const MenuWebView = () => {
           + New chat
         </Button>
 
-        <div className="recents">
-          <div className="recent-label">Recent</div>
-          <div>
-            {bardContextValue.recentUserQueries.map((query) => (
-              <RecentQueryRenderer query={query} key={query.id} />
-            ))}
+        {bardContextValue.recentUserQueries.length ? (
+          <div className="recents">
+            <div className="recent-label">Recent</div>
+            <div>
+              {bardContextValue.recentUserQueries.map((query) => (
+                <RecentQueryRenderer query={query} key={query.id} />
+              ))}
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
-      {/* </Slide> */}
     </div>
   );
 };

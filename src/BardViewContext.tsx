@@ -17,6 +17,7 @@ export interface IUserQuery {
   description: string;
   tags?: string[];
   mockResponse?: string;
+  mockNoResponse?: boolean;
 }
 
 export interface BardContextValueInterface {

@@ -12,7 +12,7 @@
 
 .recentQueryRenderer {
   font-size: 14px;
-  padding: 10px;
+  padding: 5px 15px;
 }
 
 .query-label {
@@ -47,4 +47,5 @@
 .selectedRQ {
   background-color: #c2e7ff;
   border-radius: 22px;
+  font-weight: 500;
 }
