@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/bard-cpy/static/css/main.f8d7897f.css",
-    "main.js": "/bard-cpy/static/js/main.243aa959.js",
+    "main.css": "/bard-cpy/static/css/main.ee5abcb7.css",
+    "main.js": "/bard-cpy/static/js/main.4e2f0e5a.js",
     "static/js/787.0bb90ae6.chunk.js": "/bard-cpy/static/js/787.0bb90ae6.chunk.js",
     "index.html": "/bard-cpy/index.html",
-    "main.f8d7897f.css.map": "/bard-cpy/static/css/main.f8d7897f.css.map",
-    "main.243aa959.js.map": "/bard-cpy/static/js/main.243aa959.js.map",
+    "main.ee5abcb7.css.map": "/bard-cpy/static/css/main.ee5abcb7.css.map",
+    "main.4e2f0e5a.js.map": "/bard-cpy/static/js/main.4e2f0e5a.js.map",
     "787.0bb90ae6.chunk.js.map": "/bard-cpy/static/js/787.0bb90ae6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f8d7897f.css",
-    "static/js/main.243aa959.js"
+    "static/css/main.ee5abcb7.css",
+    "static/js/main.4e2f0e5a.js"
   ]
 }
